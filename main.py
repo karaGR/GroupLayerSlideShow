@@ -74,7 +74,7 @@ class slideConfig(QDialog):
         
     def setButtonAction(self):
         groupName = self.CoB_group.currentText()
-        layerNameList = [list[1] for list in self.myLegendInterface.groupLayerRelationship() if list[0] == groupName][0]
+        layerNameList = [mylist[1] for mylist in self.myLegendInterface.groupLayerRelationship() if mylist[0] == groupName][0]
         
         if len(layerNameList) > 1:
             self.myLayerTreeView.setCurrentLayer(QgsMapLayerRegistry.instance().mapLayer(layerNameList[0]))
