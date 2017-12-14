@@ -139,33 +139,33 @@ class slideButtonDia(QDialog):
         
         
     def setLayerList(self,layerNameList):
-        self.layerNaameList = layerNameList
+        self.layerNameList = layerNameList
         
     def resetLayerId(self):
-        if  self.myLegendInterface.isLayerVisible(QgsMapLayerRegistry.instance().mapLayer(self.layerNaameList[self.layerId])):
+        if  self.myLegendInterface.isLayerVisible(QgsMapLayerRegistry.instance().mapLayer(self.layerNameList[self.layerId])):
             pass
         else:
             self.moveTop()                       
 
     def moveTop(self):
-        self.myLegendInterface.setLayerVisible(QgsMapLayerRegistry.instance().mapLayer(self.layerNaameList[0]),True)
+        self.myLegendInterface.setLayerVisible(QgsMapLayerRegistry.instance().mapLayer(self.layerNameList[0]),True)
         self.layerId = 0
         
     def moveBottom(self):
-        self.myLegendInterface.setLayerVisible(QgsMapLayerRegistry.instance().mapLayer(self.layerNaameList[-1]),True)
-        self.layerId = len(self.layerNaameList)-1
+        self.myLegendInterface.setLayerVisible(QgsMapLayerRegistry.instance().mapLayer(self.layerNameList[-1]),True)
+        self.layerId = len(self.layerNameList)-1
         
     def moveDown(self):
         self.resetLayerId()
-        if self.layerId < len(self.layerNaameList)-1:
+        if self.layerId < len(self.layerNameList)-1:
             self.layerId += 1
-            self.myLegendInterface.setLayerVisible(QgsMapLayerRegistry.instance().mapLayer(self.layerNaameList[self.layerId]),True)
+            self.myLegendInterface.setLayerVisible(QgsMapLayerRegistry.instance().mapLayer(self.layerNameList[self.layerId]),True)
             
     def moveUp(self):
         self.resetLayerId()
         if self.layerId > 0:
             self.layerId -= 1
-            self.myLegendInterface.setLayerVisible(QgsMapLayerRegistry.instance().mapLayer(self.layerNaameList[self.layerId]),True)             
+            self.myLegendInterface.setLayerVisible(QgsMapLayerRegistry.instance().mapLayer(self.layerNameList[self.layerId]),True)             
     
         
         
